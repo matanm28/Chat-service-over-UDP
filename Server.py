@@ -49,18 +49,9 @@ class Server:
         error = ""
         if sender_info not in self.user_dict.keys() and command is not "1":
             error = "user doesn't exists. Please sign up first"
-        elif sender_info not in self.user_dict.keys() and command is "1":
-            if len(message) is 0:
-                error = "error, sign in command is \"1 [Name]\""
-            else:
-                return True
         else:
             if command is "1":
                 error = "You are already signed in as: " + self.user_dict.get(sender_info).get_name()
-            elif command is "2" and len(" ".join(message).strip(" ")) is 0:
-                    error = "error, can't send empty messages"
-            elif command is "3" and len(message) is 0:
-                    error = "error, can't change name to empty string"
             else:
                 return True
         self.socket.sendto(error.encode(), sender_info)

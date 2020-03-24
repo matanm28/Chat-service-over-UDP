@@ -1,2 +1,2 @@
-# Computer-Networks-ex1
+# Chat-service-over-UDP
 Implement a chat service using UDP
